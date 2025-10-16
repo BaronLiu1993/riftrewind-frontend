@@ -4,29 +4,8 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 
 export default function MacroScreen({ macrodata }) {
-  const newMacroData = macrodata[0]
-  console.log(newMacroData)
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 1.5,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, x: -20 },
-    show: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
+  const newMacroData = macrodata[0];
+  console.log(newMacroData);
 
   return (
     <div className="h-screen w-full font-lexend bg-gray-100 flex items-center justify-center p-5">
@@ -56,7 +35,7 @@ export default function MacroScreen({ macrodata }) {
           </div>
         </div>
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-8">
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
           <div className="font-playfair">
             <TypeAnimation
               sequence={["Your Macro Wrapped"]}
@@ -65,9 +44,57 @@ export default function MacroScreen({ macrodata }) {
               cursor={false}
               style={{ fontSize: "2em", display: "inline-block" }}
             />
-            
+            <div className = "p-2 flex flex-col gap-2">
+              <div className="flex items-center gap-4">
+                <div className="rounded-2xl h-2 w-2 bg-blue-400"></div>
+                <div className="flex flex-col gap-1">
+                  <h1>Coordinated Kills</h1>
+                  <span className="text-2xl">
+                    {newMacroData.coordinated_kills}
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="rounded-2xl h-2 w-2 bg-blue-400"></div>
+                <div className="flex flex-col gap-1">
+                  <h1>Kill Participation</h1>
+                  <span className="text-2xl">
+                    {newMacroData.kill_participation}
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="rounded-2xl h-2 w-2 bg-blue-400"></div>
+                <div className="flex flex-col gap-1">
+                  <h1>Turret Takedowns</h1>
+                  <span className="text-2xl">
+                    {newMacroData.turret_takedowns}
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="rounded-2xl h-2 w-2 bg-blue-400"></div>
+
+                <div className="flex flex-col gap-1">
+                  <h1>Vision Effectiveness Per Minute</h1>
+                  <span className="text-2xl">
+                    {newMacroData.ward_actions_per_min}
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 rounded-2xl">
+                <div className="rounded-2xl h-2 w-2 bg-blue-400"></div>
+                <div className="flex flex-col gap-1">
+                  <h1>Objective Shares</h1>
+                  <span className="text-2xl">
+                    {newMacroData.epic_obj_share * 100} %
+                  </span>
+                </div>
+
+              </div>
+            </div>
           </div>
-          
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 z-10 p-4 pb-6">
