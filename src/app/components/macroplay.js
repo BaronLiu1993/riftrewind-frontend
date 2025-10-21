@@ -3,9 +3,11 @@ import { Heart, Send, Volume2 } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 
-export default function MacroScreen({ macrodata }) {
+export default function MacroScreen({ macrodata, qualitativeData,  quantitativeData}) {
   const newMacroData = macrodata[0];
   console.log(newMacroData);
+  console.log(qualitativeData)
+  console.log(quantitativeData)
 
   return (
     <div className="h-screen w-full font-lexend bg-gray-100 flex items-center justify-center p-5">

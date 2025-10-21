@@ -1,10 +1,10 @@
-import {
-  Heart,
-  Send,
-  Volume2,
-} from "lucide-react";
+"use client";
 
-export default function PlaystyleScreen() {
+import { Heart, Send, Volume2 } from "lucide-react";
+import { ScatterPlot } from "@mui/x-charts";
+import Box from "@mui/material/Box";
+
+export default function PlaystyleScreen({ qualitativeData, quantitativeData }) {
   return (
     <div className="h-screen w-full font-lexend bg-gray-100 flex items-center justify-center p-5">
       <div className="relative w-full max-w-md border-1 bg-gray-50 h-full bg-gradient-to-br overflow-hidden rounded-md">
@@ -24,6 +24,21 @@ export default function PlaystyleScreen() {
               </span>
               <span className="text-gray-600/70 text-xs">1s ago</span>
             </div>
+            <Box sx={{ width: "100%", height: 300 }}>
+              <ScatterPlot
+                height={300}
+                series={[
+                  {
+                    label: "Series A",
+                    data: quantitativeData.map((v) => ({
+                      x: v.match_index,
+                      y: v.value,
+                      id: v.match_index,
+                    })),
+                  },
+                ]}
+              />
+            </Box>
           </div>
 
           <div className="flex items-center gap-3">
@@ -36,7 +51,7 @@ export default function PlaystyleScreen() {
         <div className="absolute bottom-0 left-0 right-0 z-10 p-4 pb-6">
           <div className="flex  gap-3">
             <button className="transition-transform text-black active:scale-90">
-              <Heart className="w-7 h-7 text-gray-600 stroke-1"/>
+              <Heart className="w-7 h-7 text-gray-600 stroke-1" />
             </button>
 
             <button className="transition-transform active:scale-90">
